@@ -1,6 +1,6 @@
 <launch>
   <arg name="nodelet_manager_name" value="nodelet_manager" />
-  <arg name="camera_name" value="camera" />
+  <arg name="camera_name" value="" />
 
   <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager" output="screen" />
   
@@ -22,17 +22,17 @@
          from the .ini file.
          See http://www.ros.org/wiki/ueye_cam for more details. -->
 
-    <param name="color_mode" type="str" value="rgb8" /> <!-- valid options: 'rgb8', 'mono8', 'bayer_rggb8' -->
+    <param name="color_mode" type="str" value="mono8" /> <!-- valid options: 'rgb8', 'mono8', 'bayer_rggb8' -->
 
     <!-- WARNING: the following 4 parameters specify dimensions for camera's area of interest. Values for image_width and image_height that are smaller than your camera's maximum values will result in cropped field of view. For typical cases, one should modify values for sensor_scaling / binning / subsampling to downsample the resulting ROS image to the desired dimensions, without losing potential field of view. -->
-    <param name="image_width" type="int" value="640" />
-    <param name="image_height" type="int" value="480" />
+    <param name="image_width" type="int" value="376" />
+    <param name="image_height" type="int" value="240" />
     <param name="image_top" type="int" value="-1" /> <!-- -1: center -->
     <param name="image_left" type="int" value="-1" /> <!-- -1: center -->
 
     <param name="subsampling" type="int" value="1" /> <!-- supported by only some UEye cameras -->
     <param name="binning" type="int" value="1" /> <!-- supported by only some UEye cameras -->
-    <param name="sensor_scaling" type="double" value="1.0" /> <!-- supported by only some UEye cameras -->
+    <param name="sensor_scaling" type="double" value="2.0" /> <!-- supported by only some UEye cameras -->
 
     <param name="auto_gain" type="bool" value="True" />
     <param name="master_gain" type="int" value="0" />
